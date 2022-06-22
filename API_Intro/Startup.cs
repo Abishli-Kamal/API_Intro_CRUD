@@ -1,4 +1,6 @@
 using API_Intro.DAL;
+using API_Intro.DTOs;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,7 +35,7 @@ namespace API_Intro
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultString"));
             });
 
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ProductPostDto>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_Intro", Version = "v1" });
