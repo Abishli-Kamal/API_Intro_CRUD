@@ -36,6 +36,7 @@ namespace API_Intro
             });
 
             services.AddControllers().AddFluentValidation(f => f.RegisterValidatorsFromAssemblyContaining<ProductPostDto>());
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_Intro", Version = "v1" });

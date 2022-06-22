@@ -8,7 +8,7 @@ namespace API_Intro.CategoryConfigurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.Property(n => n.Name).IsRequired().HasMaxLength(20);
+            builder.Property(n => n.Name).IsRequired().HasMaxLength(30);
         }
     }
 }
